@@ -38,7 +38,10 @@ public class Player : MonoBehaviour
 
    [SerializeField]
     public GameObject _shieldVisualizer;
-    
+
+    [SerializeField]
+    private GameObject _rightDMG, _leftDMG;
+
     [SerializeField]
     private int _score;
 
@@ -143,6 +146,14 @@ public class Player : MonoBehaviour
 
         _lives--;
 
+        if (_lives == 2) 
+        {
+            _rightDMG.SetActive(true);
+        }
+        else if (_lives ==1) 
+        {
+            _leftDMG.SetActive(true);
+        }
         _uiManager.UpdateLives(_lives);
 
         if (_lives < 1) 
